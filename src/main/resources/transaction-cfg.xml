@@ -51,13 +51,13 @@
             <value>com.mysql.jdbc.Driver</value>
         </property>
         <property name="url">
-         <value>jdbc:mysql://localhost:3307/test</value>
+         <value>jdbc:mysql://localhost:3306/test</value>
         </property>
         <property name="username">
             <value>root</value>
         </property>
         <property name="password">
-            <value>usbw</value>
+            <value>root</value>
         </property>
     </bean>
      
