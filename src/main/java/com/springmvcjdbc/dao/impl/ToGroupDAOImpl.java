@@ -53,6 +53,9 @@ public class ToGroupDAOImpl extends JdbcDaoSupport implements ToGroupDAO {
 		List<ToGroup> toGroups = pager.getList(ToGroup.class);
 		System.out.println(toGroups);
 		System.out.println("总记录数：" + pager.getItemsTotal());
+		System.out.println("末页页码：" + pager.getLastPage());
+		System.out.println("当前页：" + pager.getCurPage());
+		System.out.println("总页数：" + pager.getPages());
 
 		User user = new User();
 		PageControl.performPage(user);
