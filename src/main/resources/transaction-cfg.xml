@@ -23,7 +23,9 @@
 	</bean>
 	<bean id="jdbcDao" class="com.dexcoder.dal.spring.JdbcDaoImpl">
 		<property name="jdbcTemplate" ref="jdbcTemplate" />
+		 <property name="sqlFactory" ref="sqlFactory"/>
 	</bean>
+	<bean id="sqlFactory" class="com.dexcoder.dal.SimpleSqlFactory"></bean>
 	<!--需要分页时声明 -->
 	<bean id="pageControl" class="com.dexcoder.dal.spring.page.PageControl"></bean>
 	
