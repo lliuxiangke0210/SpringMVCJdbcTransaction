@@ -7,14 +7,14 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dexcoder.dal.JdbcDao;
-import com.springmvcjdbc.dao.ToGroupDAO;
+import com.springmvcjdbc.dao.GroupzDAO;
 
 @Controller
-@RequestMapping("/togroup")
-public class ToGroupController {
+@RequestMapping("/groupz")
+public class GroupzController {
 
 	@Autowired
-	private ToGroupDAO toGroupDAO;
+	private GroupzDAO groupzDAO;
 	@Autowired
 	private JdbcDao jdbcDao;
 
@@ -36,7 +36,7 @@ public class ToGroupController {
 		// System.out.println(toGroup.getName());
 		// System.out.println(toGroup.getDescr());
 		// ----------------------------------
-		toGroupDAO.listToGroup();
+		groupzDAO.listGroupz();
 		// ----------------------------------
 
 		model.setViewName("home");

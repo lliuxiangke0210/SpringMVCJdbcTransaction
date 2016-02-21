@@ -8,7 +8,7 @@ import com.dexcoder.commons.pager.Pageable;
  * @author Administrator
  *
  */
-public class ToGroup extends Pageable {
+public class Groupz extends Pageable {
 	/**
 	 * 
 	 */
@@ -16,7 +16,7 @@ public class ToGroup extends Pageable {
 	/**
 	 * 组id
 	 */
-	private Integer toGroupId;
+	private Integer GroupzId;
 	/**
 	 * 组名称
 	 */
@@ -26,24 +26,25 @@ public class ToGroup extends Pageable {
 	 */
 	private String descr;
 
-	public ToGroup() {
+	public Groupz() {
 		super();
+		// TODO Auto-generated constructor stub
 	}
 
-	public ToGroup(Integer toGroupId, String name, String descr) {
+	public Groupz(Integer groupzId, String name, String descr) {
 		super();
-		this.toGroupId = toGroupId;
+		GroupzId = groupzId;
 		this.name = name;
 		this.descr = descr;
 	}
 
 	// @Column(name = "`group_id`")
-	public Integer getToGroupId() {
-		return toGroupId;
+	public Integer getGroupzId() {
+		return GroupzId;
 	}
 
-	public void setToGroupId(Integer groupId) {
-		this.toGroupId = groupId;
+	public void setGroupzId(Integer groupzId) {
+		GroupzId = groupzId;
 	}
 
 	// @Column(name = "`name`")

@@ -10,12 +10,10 @@
 
 	<!-- 打开aop 注解 -->
     <aop:aspectj-autoproxy proxy-target-class="true"/>
-
     <!-- 自动扫描(自动注入) -->
 	<context:component-scan base-package="com.springmvcjdbc.**">
 		<context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
 	</context:component-scan>
-	
 	<bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
 		<property name="dataSource">
 			<ref bean="mysqlDataSource" />
@@ -28,8 +26,6 @@
 	<bean id="sqlFactory" class="com.dexcoder.dal.SimpleSqlFactory"></bean>
 	<!--需要分页时声明 -->
 	<bean id="pageControl" class="com.dexcoder.dal.spring.page.PageControl"></bean>
-	
-	
     <!-- 注解方式配置事物 -->
     <tx:annotation-driven proxy-target-class="true" transaction-manager="txManager"/>
   
@@ -62,7 +58,4 @@
             <value>root</value>
         </property>
     </bean>
-     
-    
-     
 </beans>

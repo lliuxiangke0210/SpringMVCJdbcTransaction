@@ -12,16 +12,16 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dexcoder.commons.pager.Pager;
 import com.dexcoder.dal.JdbcDao;
 import com.dexcoder.dal.spring.page.PageControl;
-import com.springmvcjdbc.dao.ToGroupDAO;
-import com.springmvcjdbc.model.ToGroup;
+import com.springmvcjdbc.dao.GroupzDAO;
+import com.springmvcjdbc.model.Groupz;
 import com.springmvcjdbc.model.User;
 
 @Service
 @Transactional
-public class ToGroupDAOImpl extends JdbcDaoSupport implements ToGroupDAO {
+public class GroupzDAOImpl extends JdbcDaoSupport implements GroupzDAO {
 
 	@Autowired
-	public ToGroupDAOImpl(DataSource dataSource) {
+	public GroupzDAOImpl(DataSource dataSource) {
 		this.setDataSource(dataSource);
 	}
 
@@ -29,29 +29,29 @@ public class ToGroupDAOImpl extends JdbcDaoSupport implements ToGroupDAO {
 	JdbcDao jdbcDao;
 
 	@Override
-	public ToGroup findToGroup(int toGroupId) {
+	public Groupz findGroupz(int groupzId) {
 		// TODO Auto-generated method stub
-		ToGroup ToGroup = jdbcDao.get(ToGroup.class, (long) toGroupId);
-		return ToGroup;
+		Groupz Groupz = jdbcDao.get(Groupz.class, (long) groupzId);
+		return Groupz;
 	}
 
 	@Override
-	public void insertToGroup(ToGroup toGroup) {
-		Long ToGroupId = jdbcDao.insert(toGroup);
-		System.out.println(ToGroupId);
+	public void insertGroupz(Groupz groupz) {
+		Long groupzId = jdbcDao.insert(groupz);
+		System.out.println(groupzId);
 
 	}
 
 	@Override
-	public List<ToGroup> listToGroup() {
+	public List<Groupz> listGroupz() {
 
-		// List<ToGroup> ToGroups = jdbcDao.queryList(ToGroup.class);
-		ToGroup toGroup = new ToGroup();
-		PageControl.performPage(toGroup);
-		jdbcDao.queryList(toGroup);
+		// List<Groupz> groupzs = jdbcDao.queryList(Groupz.class);
+		Groupz Groupz = new Groupz();
+		PageControl.performPage(Groupz);
+		jdbcDao.queryList(Groupz);
 		Pager pager = PageControl.getPager();
-		List<ToGroup> toGroups = pager.getList(ToGroup.class);
-		System.out.println(toGroups);
+		List<Groupz> Groupzs = pager.getList(Groupz.class);
+		System.out.println(Groupzs);
 		System.out.println("总记录数：" + pager.getItemsTotal());
 		System.out.println("末页页码：" + pager.getLastPage());
 		System.out.println("当前页：" + pager.getCurPage());
@@ -69,14 +69,14 @@ public class ToGroupDAOImpl extends JdbcDaoSupport implements ToGroupDAO {
 	}
 
 	@Override
-	public void delete(int toGroupId) {
+	public void delete(int groupzId) {
 		// TODO Auto-generated method stub
-		jdbcDao.delete(ToGroup.class, (long) toGroupId);
+		jdbcDao.delete(Groupz.class, (long) groupzId);
 
 	}
 
 	@Override
-	public void Update(ToGroup toGroup) {
+	public void Update(Groupz groupz) {
 		// TODO Auto-generated method stub
 
 	}
