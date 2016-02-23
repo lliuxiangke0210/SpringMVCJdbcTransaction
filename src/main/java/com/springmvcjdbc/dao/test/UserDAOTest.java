@@ -9,6 +9,8 @@ import com.springmvcjdbc.dao.UserDAO;
 import com.springmvcjdbc.model.Groupz;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.User;
+import com.springmvcjdbc.model.UserGroup;
+import com.springmvcjdbc.model.UserRole;
 
 @Service
 public class UserDAOTest {
@@ -119,6 +121,19 @@ public class UserDAOTest {
 
 	public void deleteUserGroup(Integer uid, Integer gid) {
 		userDAO.deleteUserGroup(uid, gid);
+	}
+
+	public void loadUserRole(Integer userId, Integer roleId) {
+		UserRole userRole = userDAO.loadUserRole(userId, roleId);
+		System.out.println(userRole);
+		System.out.println(userRole.getUserRoleId());
+		System.out.println(userRole.getRole().getName());
+		System.out.println(userRole.getUser().getUsername());
+	}
+
+	public void loadUserGroup(Integer userId, Integer groupId) {
+		UserGroup userGroup = userDAO.loadUserGroup(userId, groupId);
+		System.out.println(userGroup);
 	}
 
 }

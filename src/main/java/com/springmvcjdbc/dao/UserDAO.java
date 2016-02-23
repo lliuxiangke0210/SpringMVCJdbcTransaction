@@ -148,4 +148,22 @@ public interface UserDAO {
 	 */
 	public void deleteUserGroup(Integer uid, Integer gid);
 
+	/**
+	 * 通过roleID 获得角色对象
+	 * 
+	 * @param roleId
+	 *            角色ID
+	 * @return
+	 */
+	public Role loadByRoleId(Integer roleId);
+
+	/**
+	 * 通过groupId获得组对象
+	 * 
+	 * @param groupId
+	 *            组ID
+	 * @return
+	 */
+	public Groupz loadByGroupId(Integer groupId);
+
 }

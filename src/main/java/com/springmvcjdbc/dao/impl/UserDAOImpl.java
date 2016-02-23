@@ -78,39 +78,41 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 	}
 
 	@Override
-	public UserRole loadUserRole(Integer userId, Integer roleId) {
-		// String hql = "select ur from UserRole ur left join fetch ur.user u
-		// left join fetch ur.role r where u.id=? and r.id=?";
-		// String sql = " select * from user_role left join user on
-		// (user_role.user_id=user.user_id) left join role on (user_role.role_id
-		// = role.role_id) where user_role.user_id=? and user_role.role_id=?";
-		// List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql,
-		// new Object[] { userId, roleId });
-		// for (Map<String, Object> map : maps) {
-		// UserRole userRole = new UserRole();
-		// User user = new User();
-		// Role role =new Role();
-		// userRole.setUserRoleId((Integer)map.get("userRoleId"));
-		// user.setPhone((String)map.get("phone"));
-		// }
+	public UserRole loadUserRole(Integer userId, Integer roleId) {// oo
 		String sql = " select * from user_role  where user_id=? and role_id=?";
 		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql, new Object[] { userId, roleId });
-		System.out.println(maps);
-		for (Map<String, Object> map : maps) {
-			map.get("userRoleId");
-			map.get("roleId");
-			map.get("userId");
-
+		if (maps == null) {
+			return null;
 		}
 		UserRole userRole = new UserRole();
+		for (Map<String, Object> map : maps) {
+			Integer userRoleId = (Integer) map.get("userRoleId");
+			userRole.setUserRoleId(userRoleId);
+		}
+		User user = this.loadByUserId(userId);
+		Role role = this.loadByRoleId(roleId);
+		userRole.setUser(user);
+		userRole.setRole(role);
 		return userRole;
 	}
 
 	@Override
 	public UserGroup loadUserGroup(Integer userId, Integer groupId) {
-		Criteria criteria = Criteria.select(UserGroup.class).where("user_id", new Object[] { userId }).and("groupz_id",
-				new Object[] { groupId });
-		UserGroup userGroup = jdbcDao.queryObject(criteria);
+		String sql = " select * from user_group  where user_id=? and groupz_id=?";
+		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql, new Object[] { userId, groupId });
+		System.out.println(maps);
+		if (maps == null) {
+			return null;
+		}
+		UserGroup userGroup = new UserGroup();
+		for (Map<String, Object> map : maps) {
+			Integer userGroupId = (Integer) map.get("userGroupzId");
+			userGroup.setUserGroupId(userGroupId);
+		}
+		User user = this.loadByUserId(userId);
+		Groupz groupz = this.loadByGroupId(groupId);
+		userGroup.setUser(user);
+		userGroup.setGroupz(groupz);
 		return userGroup;
 	}
 
@@ -135,6 +137,22 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 		Criteria criteria = Criteria.select(User.class).where("user_id", new Object[] { userId });
 		User u = jdbcDao.querySingleResult(criteria);
 		return u;
+
+	}
+
+	@Override
+	public Role loadByRoleId(Integer roleId) {// oo
+		Criteria criteria = Criteria.select(Role.class).where("role_id", new Object[] { roleId });
+		Role role = jdbcDao.querySingleResult(criteria);
+		return role;
+
+	}
+
+	@Override
+	public Groupz loadByGroupId(Integer groupId) {// oo
+		Criteria criteria = Criteria.select(Groupz.class).where("groupz_id", new Object[] { groupId });
+		Groupz groupz = jdbcDao.querySingleResult(criteria);
+		return groupz;
 
 	}
 

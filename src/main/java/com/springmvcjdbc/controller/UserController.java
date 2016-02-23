@@ -37,7 +37,9 @@ public class UserController {
 		// userDAOTest.deleteUserRolesByUserId(4);
 		// userDAOTest.findUser();
 		// userDAOTest.deleteUserRole(5, 2);
-		userDAOTest.deleteUserGroup(1, 3);
+		// userDAOTest.deleteUserGroup(1, 3);
+		userDAOTest.loadUserRole(1, 2);
+		// userDAOTest.loadUserGroup(6, 2);
 		model.setViewName("home");
 		return model;
 	}
