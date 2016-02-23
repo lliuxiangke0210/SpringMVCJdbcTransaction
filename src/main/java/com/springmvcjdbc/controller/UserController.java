@@ -38,8 +38,10 @@ public class UserController {
 		// userDAOTest.findUser();
 		// userDAOTest.deleteUserRole(5, 2);
 		// userDAOTest.deleteUserGroup(1, 3);
-		userDAOTest.loadUserRole(1, 2);
-		// userDAOTest.loadUserGroup(6, 2);
+		// userDAOTest.loadUserRole(1, 2);
+		// userDAOTest.loadUserGroup(2, 3);
+		// userDAOTest.addUserRole();
+		userDAOTest.addUserGroup();
 		model.setViewName("home");
 		return model;
 	}

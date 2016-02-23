@@ -81,7 +81,7 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 	public UserRole loadUserRole(Integer userId, Integer roleId) {// oo
 		String sql = " select * from user_role  where user_id=? and role_id=?";
 		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql, new Object[] { userId, roleId });
-		if (maps == null) {
+		if (maps == null || maps.isEmpty()) {
 			return null;
 		}
 		UserRole userRole = new UserRole();
@@ -97,16 +97,15 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 	}
 
 	@Override
-	public UserGroup loadUserGroup(Integer userId, Integer groupId) {
+	public UserGroup loadUserGroup(Integer userId, Integer groupId) {// oo
 		String sql = " select * from user_group  where user_id=? and groupz_id=?";
 		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql, new Object[] { userId, groupId });
-		System.out.println(maps);
-		if (maps == null) {
+		if (maps == null || maps.isEmpty()) {
 			return null;
 		}
 		UserGroup userGroup = new UserGroup();
 		for (Map<String, Object> map : maps) {
-			Integer userGroupId = (Integer) map.get("userGroupzId");
+			Integer userGroupId = (Integer) map.get("userGroupId");
 			userGroup.setUserGroupId(userGroupId);
 		}
 		User user = this.loadByUserId(userId);
@@ -188,26 +187,32 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 	}
 
 	@Override
-	public void addUserRole(User user, Role role) {
-		UserRole ur = this.loadUserRole(user.getUserId(), role.getRoleId());
-		if (ur != null)
+	public void addUserRole(User user, Role role) {// oo
+		String sql = " select * from user_role  where user_id=? and role_id=?";
+		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql,
+				new Object[] { user.getUserId(), role.getRoleId() });
+		if (!maps.isEmpty()) {
 			return;
-		ur = new UserRole();
-		ur.setRole(role);
-		ur.setUser(user);
-		jdbcDao.insert(ur);
+		}
+		@SuppressWarnings("unused")
+		String insertSql = " insert into user_role (user_id,role_id) values (?,?)";
+		Object[] objs = new Object[] { user.getUserId(), role.getRoleId() };
+		jdbcDao.updateForSql(insertSql, objs);
 
 	}
 
 	@Override
-	public void addUserGroup(User user, Groupz groupz) {
-		UserGroup ug = this.loadUserGroup(user.getUserId(), groupz.getGroupzId());
-		if (ug != null)
+	public void addUserGroup(User user, Groupz groupz) {// oo
+		String sql = " select * from user_group  where user_id=? and groupz_id=?";
+		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql,
+				new Object[] { user.getUserId(), groupz.getGroupzId() });
+		if (!maps.isEmpty()) {
 			return;
-		ug = new UserGroup();
-		ug.setGroupz(groupz);
-		ug.setUser(user);
-		jdbcDao.insert(ug);
+		}
+		@SuppressWarnings("unused")
+		String insertSql = " insert into user_group (user_id,groupz_id) values (?,?)";
+		Object[] objs = new Object[] { user.getUserId(), groupz.getGroupzId() };
+		jdbcDao.updateForSql(insertSql, objs);
 
 	}
 

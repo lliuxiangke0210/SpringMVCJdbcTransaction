@@ -122,7 +122,7 @@
 			<artifactId>jsr303</artifactId>
 			<version>1.4.21</version>
 		</dependency>
-		<!--时间处理类  -->
+		<!--时间处理类 -->
 		<dependency>
 			<groupId>joda-time</groupId>
 			<artifactId>joda-time</artifactId>
@@ -133,7 +133,11 @@
 			<artifactId>gson</artifactId>
 			<version>2.6.1</version>
 		</dependency>
-
+		<dependency>
+			<groupId>org.apache.commons</groupId>
+			<artifactId>commons-lang3</artifactId>
+			<version>3.4</version>
+		</dependency>
 		<!-- json -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>

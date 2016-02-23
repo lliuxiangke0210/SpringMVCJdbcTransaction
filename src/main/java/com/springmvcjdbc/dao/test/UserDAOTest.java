@@ -126,14 +126,33 @@ public class UserDAOTest {
 	public void loadUserRole(Integer userId, Integer roleId) {
 		UserRole userRole = userDAO.loadUserRole(userId, roleId);
 		System.out.println(userRole);
-		System.out.println(userRole.getUserRoleId());
-		System.out.println(userRole.getRole().getName());
-		System.out.println(userRole.getUser().getUsername());
+
 	}
 
 	public void loadUserGroup(Integer userId, Integer groupId) {
 		UserGroup userGroup = userDAO.loadUserGroup(userId, groupId);
 		System.out.println(userGroup);
+		System.out.println(userGroup.getUser().getUsername());
+		System.out.println(userGroup.getGroupz().getDescr());
+		System.out.println(userGroup.getUserGroupId());
+	}
+
+	public void addUserRole() {
+		User user = new User();
+		Role role = new Role();
+		user.setUserId(101);
+		role.setRoleId(2);
+		userDAO.addUserRole(user, role);
+
+	}
+
+	public void addUserGroup() {
+		User user = new User();
+		Groupz groupz = new Groupz();
+		user.setUserId(102);
+		groupz.setGroupzId(3);
+		userDAO.addUserGroup(user, groupz);
+
 	}
 
 }
