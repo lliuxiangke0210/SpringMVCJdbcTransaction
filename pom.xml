@@ -128,6 +128,7 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.9.2</version>
 		</dependency>
+		<!--google json  -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
@@ -138,6 +139,12 @@
 			<artifactId>commons-lang3</artifactId>
 			<version>3.4</version>
 		</dependency>
+		<dependency>
+			<groupId>com.google.guava</groupId>
+			<artifactId>guava</artifactId>
+			<version>19.0</version>
+		</dependency>
+
 		<!-- json -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
