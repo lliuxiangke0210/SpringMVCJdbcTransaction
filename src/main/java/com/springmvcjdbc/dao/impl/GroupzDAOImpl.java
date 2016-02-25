@@ -17,7 +17,6 @@ import com.springmvcjdbc.dao.GroupzDAO;
 import com.springmvcjdbc.model.ChannelTree;
 import com.springmvcjdbc.model.GroupChannel;
 import com.springmvcjdbc.model.Groupz;
-import com.springmvcjdbc.model.User;
 
 @Service
 @Transactional
@@ -32,67 +31,60 @@ public class GroupzDAOImpl extends JdbcDaoSupport implements GroupzDAO {
 	JdbcDao jdbcDao;
 
 	@Override
-	public Groupz findGroupz(Integer groupzId) {
+	public Groupz findGroupz(Integer groupzId) {// oo
 		// TODO Auto-generated method stub
 		Groupz Groupz = jdbcDao.get(Groupz.class, (long) groupzId);
 		return Groupz;
 	}
 
 	@Override
-	public void insertGroupz(Groupz groupz) {
+	public void insertGroupz(Groupz groupz) {// oo
 		Long groupzId = jdbcDao.insert(groupz);
 		System.out.println(groupzId);
 
 	}
 
 	@Override
-	public List<Groupz> listGroupz() {
-
-		// List<Groupz> groupzs = jdbcDao.queryList(Groupz.class);
-		Groupz Groupz = new Groupz();
-		PageControl.performPage(Groupz);
-		jdbcDao.queryList(Groupz);
+	public Pager listPagerGroupz() { // oo
+		Groupz groupz = new Groupz();
+		PageControl.performPage(groupz);
+		jdbcDao.queryList(groupz);
 		Pager pager = PageControl.getPager();
-		List<Groupz> Groupzs = pager.getList(Groupz.class);
-		System.out.println(Groupzs);
-		System.out.println("总记录数：" + pager.getItemsTotal());
-		System.out.println("末页页码：" + pager.getLastPage());
-		System.out.println("当前页：" + pager.getCurPage());
-		System.out.println("总页数：" + pager.getPages());
+		// List<Groupz> groupzs = pager.getList(Groupz.class);
+		return pager;
+		// ------------------------
+		// List<Groupz> groupzs = jdbcDao.queryList(Groupz.class);
+		// User user = new User();
+		// PageControl.performPage(user);
+		// jdbcDao.queryList(user);
+		// Pager pager2 = PageControl.getPager();
+		// List<User> users = pager2.getList(User.class);
+		// System.out.println(users);
+		// System.out.println("总记录数：" + pager2.getItemsTotal());
+	}
 
-		User user = new User();
-		PageControl.performPage(user);
-		jdbcDao.queryList(user);
-		Pager pager2 = PageControl.getPager();
-		List<User> users = pager2.getList(User.class);
-		System.out.println(users);
-		System.out.println("总记录数：" + pager2.getItemsTotal());
-
-		return null;
+	@Override
+	public List<Groupz> listGroupz() {// oo
+		List<Groupz> groupzs = jdbcDao.queryList(Groupz.class);
+		return groupzs;
 	}
 
 	@Override
 	public void delete(Integer groupzId) {
-		// TODO Auto-generated method stub
 		jdbcDao.delete(Groupz.class, (long) groupzId);
 
 	}
 
 	@Override
 	public void Update(Groupz groupz) {
-		// TODO Auto-generated method stub
+		jdbcDao.update(groupz);
 
 	}
 
 	@Override
-	public List<Groupz> listGroup() {
-		// TODO Auto-generated method stub
-		return null;
-	}
-
-	@Override
-	public void deleteGroupUsers(Integer gid) {
-		// TODO Auto-generated method stub
+	public void deleteGroupUsers(Integer gid) { // oo
+		String sql = "delete from user_group where groupz_id=?";
+		jdbcDao.updateForSql(sql, new Object[] { gid });
 
 	}
 

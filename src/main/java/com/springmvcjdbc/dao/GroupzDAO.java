@@ -3,6 +3,7 @@ package com.springmvcjdbc.dao;
 import java.nio.channels.Channel;
 import java.util.List;
 
+import com.dexcoder.commons.pager.Pager;
 import com.springmvcjdbc.model.ChannelTree;
 import com.springmvcjdbc.model.GroupChannel;
 import com.springmvcjdbc.model.Groupz;
@@ -13,13 +14,13 @@ public interface GroupzDAO {
 
 	public void insertGroupz(Groupz groupz);
 
+	public Pager listPagerGroupz();
+
 	public List<Groupz> listGroupz();
 
 	public void delete(Integer groupzId);
 
 	public void Update(Groupz groupz);
-
-	public List<Groupz> listGroup();
 
 	public void deleteGroupUsers(Integer gid);
 

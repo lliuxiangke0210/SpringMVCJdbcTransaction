@@ -6,7 +6,7 @@ public class Channel {
 	/**
 	 * 栏目的主键
 	 */
-	private Integer id;
+	private Integer channelId;
 	/**
 	 * 栏目的名称
 	 */
@@ -14,7 +14,7 @@ public class Channel {
 	/**
 	 * 栏目是否是自定义链接，0表示否，1表示是
 	 */
-	private int customLink;
+	private Integer customLink;
 	/**
 	 * 自定义链接的地址
 	 */
@@ -52,28 +52,12 @@ public class Channel {
 	 */
 	private Integer navOrder;
 
-	public int getNavOrder() {
-		return navOrder;
+	public Integer getChannelId() {
+		return channelId;
 	}
 
-	public void setNavOrder(int navOrder) {
-		this.navOrder = navOrder;
-	}
-
-	public Channel getParent() {
-		return parent;
-	}
-
-	public void setParent(Channel parent) {
-		this.parent = parent;
-	}
-
-	public int getId() {
-		return id;
-	}
-
-	public void setId(int id) {
-		this.id = id;
+	public void setChannelId(Integer channelId) {
+		this.channelId = channelId;
 	}
 
 	public String getName() {
@@ -84,11 +68,11 @@ public class Channel {
 		this.name = name;
 	}
 
-	public int getCustomLink() {
+	public Integer getCustomLink() {
 		return customLink;
 	}
 
-	public void setCustomLink(int customLink) {
+	public void setCustomLink(Integer customLink) {
 		this.customLink = customLink;
 	}
 
@@ -108,65 +92,89 @@ public class Channel {
 		this.type = type;
 	}
 
-	public int getIsIndex() {
+	public Integer getIsIndex() {
 		return isIndex;
 	}
 
-	public void setIsIndex(int isIndex) {
+	public void setIsIndex(Integer isIndex) {
 		this.isIndex = isIndex;
 	}
 
-	public int getIsTopNav() {
+	public Integer getIsTopNav() {
 		return isTopNav;
 	}
 
-	public void setIsTopNav(int isTopNav) {
+	public void setIsTopNav(Integer isTopNav) {
 		this.isTopNav = isTopNav;
 	}
 
-	public int getRecommend() {
+	public Integer getRecommend() {
 		return recommend;
 	}
 
-	public void setRecommend(int recommend) {
+	public void setRecommend(Integer recommend) {
 		this.recommend = recommend;
 	}
 
-	public int getStatus() {
+	public Integer getStatus() {
 		return status;
 	}
 
-	public void setStatus(int status) {
+	public void setStatus(Integer status) {
 		this.status = status;
 	}
 
-	public int getOrders() {
+	public Integer getOrders() {
 		return orders;
 	}
 
-	public void setOrders(int orders) {
+	public void setOrders(Integer orders) {
 		this.orders = orders;
+	}
+
+	public Channel getParent() {
+		return parent;
+	}
+
+	public void setParent(Channel parent) {
+		this.parent = parent;
+	}
+
+	public Integer getNavOrder() {
+		return navOrder;
+	}
+
+	public void setNavOrder(Integer navOrder) {
+		this.navOrder = navOrder;
+	}
+
+	public static String getRootName() {
+		return ROOT_NAME;
+	}
+
+	public static Integer getRootId() {
+		return ROOT_ID;
 	}
 
 	public Channel() {
 	}
 
-	public Channel(Integer id, String name) {
+	public Channel(Integer channelId, String name) {
 		super();
-		this.id = id;
+		this.channelId = channelId;
 		this.name = name;
 	}
 
-	public Channel(Integer id, String name, ChannelType ct) {
+	public Channel(Integer channelId, String name, ChannelType ct) {
 		super();
-		this.id = id;
+		this.channelId = channelId;
 		this.name = name;
 		this.type = ct;
 	}
 
-	public Channel(Integer id, String name, Integer customLink, String customLinkUrl) {
+	public Channel(Integer channelId, String name, Integer customLink, String customLinkUrl) {
 		super();
-		this.id = id;
+		this.channelId = channelId;
 		this.name = name;
 		this.customLink = customLink;
 		this.customLinkUrl = customLinkUrl;
