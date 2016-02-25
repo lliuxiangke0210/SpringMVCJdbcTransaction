@@ -6,14 +6,16 @@ import com.springmvcjdbc.model.Role;
 
 public interface RoleDAO {
 
-	public Role findRole(int roleId);
+	public Role findRole(Integer roleId);
 
 	public void insertRole(Role role);
 
 	public List<Role> listRole();
 
-	public void delete(int roleId);
+	public void delete(Integer roleId);
 
 	public void Update(Role role);
+
+	public void deleteRoleUsers(Integer rid);
 
 }
