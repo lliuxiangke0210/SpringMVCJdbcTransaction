@@ -128,11 +128,16 @@
 			<artifactId>joda-time</artifactId>
 			<version>2.9.2</version>
 		</dependency>
-		<!--google json  -->
+		<!--google json -->
 		<dependency>
 			<groupId>com.google.code.gson</groupId>
 			<artifactId>gson</artifactId>
 			<version>2.6.1</version>
+		</dependency>
+		<dependency>
+			<groupId>com.alibaba</groupId>
+			<artifactId>fastjson</artifactId>
+			<version>1.2.7</version>
 		</dependency>
 		<dependency>
 			<groupId>org.apache.commons</groupId>
@@ -144,7 +149,11 @@
 			<artifactId>guava</artifactId>
 			<version>19.0</version>
 		</dependency>
-
+		<dependency>
+			<groupId>net.agkn</groupId>
+			<artifactId>hll</artifactId>
+			<version>1.6.0</version>
+		</dependency>
 		<!-- json -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>
