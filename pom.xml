@@ -63,7 +63,11 @@
 			<version>2.2</version>
 			<scope>provided</scope>
 		</dependency>
-
+		<dependency>
+			<groupId>jsptags</groupId>
+			<artifactId>pager-taglib</artifactId>
+			<version>2.0</version>
+		</dependency>
 		<!-- Spring dependencies -->
 		<!-- http://mvnrepository.com/artifact/org.springframework/spring-core -->
 		<dependency>
@@ -149,7 +153,7 @@
 			<artifactId>guava</artifactId>
 			<version>19.0</version>
 		</dependency>
-		
+
 		<!-- json -->
 		<dependency>
 			<groupId>org.codehaus.jackson</groupId>

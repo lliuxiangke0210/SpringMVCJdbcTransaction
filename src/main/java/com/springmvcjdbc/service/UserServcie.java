@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.dexcoder.commons.pager.Pager;
 import com.springmvcjdbc.model.Groupz;
+import com.springmvcjdbc.model.PagerBean;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.User;
 
@@ -51,19 +51,19 @@ public interface UserServcie {
 	 * @param oldPwd
 	 * @param newPwd
 	 */
-	public void updatePwd(int uid, String oldPwd, String newPwd);
+	public void updatePwd(Integer uid, String oldPwd, String newPwd);
 
 	/**
 	 * 更新用户的状态
 	 * 
 	 * @param id
 	 */
-	public void updateStatus(int id);
+	public void updateStatus(Integer id);
 
 	/**
 	 * 列表用户
 	 */
-	public Pager findUser();
+	public PagerBean<User> findUser();
 
 	/**
 	 * 获取用户信息

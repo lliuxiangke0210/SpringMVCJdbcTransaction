@@ -7,19 +7,30 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dexcoder.dal.JdbcDao;
-import com.springmvcjdbc.dao.UserDAO;
 import com.springmvcjdbc.dao.test.UserDAOTest;
+import com.springmvcjdbc.model.PagerBean;
+import com.springmvcjdbc.model.User;
+import com.springmvcjdbc.service.impl.UserServcieImpl;
 
 @Controller
-@RequestMapping("/user")
+@RequestMapping("/admin/user")
 public class UserController {
 
 	@Autowired
-	private UserDAO userDAO;
+	private UserServcieImpl userServcie;
 	@Autowired
 	private JdbcDao jdbcDao;
 	@Autowired
 	private UserDAOTest userDAOTest;
+
+	@RequestMapping(value = { "/users" }, method = RequestMethod.GET)
+	public ModelAndView list(ModelAndView model) {
+		PagerBean<User> datas = userServcie.findUser();
+
+		model.addObject("datas", userServcie.findUser());
+		model.setViewName("user/list");
+		return model;
+	}
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public ModelAndView welcomePage(ModelAndView model) {

@@ -11,13 +11,16 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dexcoder.commons.pager.Pager;
 import com.dexcoder.dal.JdbcDao;
 import com.dexcoder.dal.build.Criteria;
+import com.dexcoder.dal.spring.page.PageControl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.springmvcjdbc.dao.UserDAO;
 import com.springmvcjdbc.model.Groupz;
+import com.springmvcjdbc.model.PagerBean;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.User;
 import com.springmvcjdbc.model.UserGroup;
@@ -230,6 +233,18 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 	}
 
 	@Override
+	public void deleteUserGroupsByUserId(Integer userId) {// oo
+		Criteria criteria = Criteria.delete(UserGroup.class).where("user_id", new Object[] { userId });
+		jdbcDao.delete(criteria);
+	}
+
+	@Override
+	public void deleteByUserId(Integer userId) {// oo
+		Criteria criteria = Criteria.delete(User.class).where("user_id", new Object[] { userId });
+		jdbcDao.delete(criteria);
+	}
+
+	@Override
 	public List<User> findUser() {// oo
 		List<User> users = jdbcDao.queryList(User.class);
 		return users;
@@ -249,6 +264,33 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 				new Object[] { gid });
 		jdbcDao.delete(criteria);
 
+	}
+
+	@Override
+	public void addUser(User user) {
+
+		jdbcDao.insert(user);
+	}
+
+	@Override
+	public void updateUser(User user) {
+
+		jdbcDao.update(user);
+	}
+
+	@Override
+	public PagerBean<User> listPagerUser() {
+		User user = new User();
+		PageControl.performPage(user);
+		jdbcDao.queryList(user);
+		Pager pager = PageControl.getPager();
+		List<User> users = pager.getList(User.class);
+		PagerBean<User> pBean = new PagerBean<User>();
+		pBean.setDatas(users);
+		pBean.setOffset(pager.getOffset());
+		pBean.setSize(pager.getItemsPerPage());
+		pBean.setTotal(pager.getItemsTotal());
+		return pBean;
 	}
 
 }
