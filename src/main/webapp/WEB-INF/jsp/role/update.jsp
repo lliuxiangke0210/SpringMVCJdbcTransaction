@@ -17,7 +17,7 @@
 	</h3>
 	<sf:form method="post" modelAttribute="role" id="addForm">
 	<table width="800" cellspacing="0" cellPadding="0">
-	<sf:hidden path="id"/>
+	<sf:hidden path="roleId"/>
 		<thead><tr><td colspan="2">修改角色功能</td></tr></thead>
 		<tr>
 			<td class="rightTd" width="200px">角色名称:</td>

@@ -16,7 +16,7 @@
 		<jsp:include page="inc.jsp"></jsp:include>
 	</h3>
 	<table width="800" cellspacing="0" cellPadding="0">
-		<thead><tr><td colspan="2">查询角色功能：角色id[${role.id }]</td></tr></thead>
+		<thead><tr><td colspan="2">查询角色功能：角色id[${role.roleId }]</td></tr></thead>
 		<tr>
 			<td class="rightTd" width="200px">角色名称:</td><td class="leftTd">${role.name }&nbsp;</td>
 		</tr>
@@ -27,12 +27,12 @@
 			<td class="rightTd">角色中的所有用户:</td>
 			<td>
 				<c:forEach items="${us }" var="u">
-					<a href="<%=request.getContextPath()%>/admin/user/${u.id}" class="list_op">[${u.nickname }]</a>&nbsp;
+					<a href="<%=request.getContextPath()%>/admin/user/${u.userId}" class="list_op">[${u.nickname }]</a>&nbsp;
 				</c:forEach>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" class="centerTd"><a href="update/${role.id }" class="list_op">修改角色</a></td>
+			<td colspan="2" class="centerTd"><a href="update/${role.roleId }" class="list_op">修改角色</a></td>
 		</tr>
 	</table>
 </div>

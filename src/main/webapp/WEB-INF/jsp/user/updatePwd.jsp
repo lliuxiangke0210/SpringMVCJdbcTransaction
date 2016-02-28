@@ -23,7 +23,7 @@ $(function(){
 	</h3>
 	<form method="post" id="addForm">
 	<table width="800" cellspacing="0" cellPadding="0">
-	<input type="hidden" name="id" value="${user.id }"/>
+	<input type="hidden" name="id" value="${user.userId }"/>
 		<thead><tr><td colspan="2">修改用户-->${user.username}</td></tr></thead>
 		<tr>
 			<td class="rightTd">原始密码:</td><td class="leftTd"><input type="password" name="oldPwd" size="30"/></td>

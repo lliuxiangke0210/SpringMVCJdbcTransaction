@@ -16,7 +16,7 @@
 		<jsp:include page="inc.jsp"></jsp:include>
 	</h3>
 	<table width="800" cellspacing="0" cellPadding="0">
-		<thead><tr><td colspan="2">查询用户组功能：用户组id[${group.id }]</td></tr></thead>
+		<thead><tr><td colspan="2">查询用户组功能：用户组id[${group.groupzId }]</td></tr></thead>
 		<tr>
 			<td class="rightTd" width="200px">组名称:</td><td class="leftTd">${group.name }&nbsp;</td>
 		</tr>
@@ -27,12 +27,12 @@
 			<td class="rightTd">组中的所有用户:</td>
 			<td>
 				<c:forEach items="${us }" var="u">
-					<a href="<%=request.getContextPath()%>/admin/user/${u.id}" class="list_op">[${u.nickname }]</a>&nbsp;
+					<a href="<%=request.getContextPath()%>/admin/user/${u.userId}" class="list_op">[${u.nickname }]</a>&nbsp;
 				</c:forEach>
 			</td>
 		</tr>
 		<tr>
-			<td colspan="2" class="centerTd"><a href="update/${group.id }" class="list_op">修改用户组</a></td>
+			<td colspan="2" class="centerTd"><a href="update/${group.groupzId }" class="list_op">修改用户组</a></td>
 		</tr>
 	</table>
 </div>

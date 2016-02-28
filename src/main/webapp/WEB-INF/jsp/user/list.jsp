@@ -1,3 +1,5 @@
+<%@page import="com.dexcoder.commons.pager.Pager"%>
+<%@page import="javax.activation.DataSource"%>
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
@@ -28,6 +30,7 @@
 		</thead>
 		<tbody>
 		<c:forEach items="${datas.datas }" var="user">
+		
 			<tr>
 				<td>${user.userId }&nbsp;</td>
 				<td><a href="${user.userId }" class="list_link">${user.username }</a></td>
@@ -61,6 +64,7 @@
 			<td colspan="6" style="text-align:right;margin-right:10px;">
 			<jsp:include page="/jsp/pager.jsp">
 				<jsp:param value="${datas.total }" name="totalRecord"/>
+				<jsp:param value="${datas.size }" name="pageSize"/>
 				<jsp:param value="users" name="url"/>
 			</jsp:include>
 			</td>

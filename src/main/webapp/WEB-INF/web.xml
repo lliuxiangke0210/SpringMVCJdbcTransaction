@@ -17,7 +17,6 @@
 		</init-param>
 		<load-on-startup>1</load-on-startup>
    </servlet>
- 
    <servlet-mapping>
        <servlet-name>spring-mvc</servlet-name>
        <!-- 此处可以可以配置成*.do，对应struts的后缀习惯 -->  
@@ -32,8 +31,6 @@
           classpath:transaction-cfg.xml
         </param-value>        
    </context-param>
- 
- 
    <!-- Spring ContextLoaderListener -->
     <!-- Spring监听器 -->  
    <listener>
@@ -62,6 +59,19 @@
     <filter-name>setcharacter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
+  <!-- dddd -->
+  	<filter-mapping>
+		<filter-name>SystemContextFilter</filter-name>
+		<url-pattern>/*</url-pattern>
+	</filter-mapping>
+	<listener>
+		<listener-class>com.springmvcjdbc.cms.web.CmsSessionListener</listener-class>
+	</listener>
+	<filter>
+		<filter-name>SystemContextFilter</filter-name>
+		<filter-class>com.springmvcjdbc.cms.web.SystemContextFilter</filter-class>
+	</filter>
+  <!-- dddd -->
   <!-- 配置session超时时间，单位分钟 -->
 	<session-config>
 		<session-timeout>30</session-timeout>

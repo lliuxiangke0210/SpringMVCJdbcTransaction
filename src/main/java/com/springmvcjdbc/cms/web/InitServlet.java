@@ -23,7 +23,7 @@ public class InitServlet extends HttpServlet {
 		// 初始化spring的工厂
 		wc = WebApplicationContextUtils.getWebApplicationContext(this.getServletContext());
 		// 初始化权限信息
-		Map<String, Set<String>> auths = AuthUtil.initAuth("org.konghao.cms.controller");
+		Map<String, Set<String>> auths = AuthUtil.initAuth("com.springmvcjdbc.cms.auth");
 		this.getServletContext().setAttribute("allAuths", auths);
 		this.getServletContext().setAttribute("baseInfo", BaseInfoUtil.getInstacne().read());
 		System.out.println("------------------------系统初始化成功:" + auths + "-----------------------------");

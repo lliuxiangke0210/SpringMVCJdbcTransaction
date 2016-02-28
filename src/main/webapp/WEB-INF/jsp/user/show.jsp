@@ -16,7 +16,7 @@
 		<jsp:include page="inc.jsp"></jsp:include>
 	</h3>
 	<table width="800" cellspacing="0" cellPadding="0">
-		<thead><tr><td colspan="2">查询用户功能：用户id[${user.id }]</td></tr></thead>
+		<thead><tr><td colspan="2">查询用户功能：用户id[${user.userId }]</td></tr></thead>
 		<tr>
 			<td class="rightTd" width="200px">用户名:</td><td class="leftTd">${user.username }&nbsp;</td>
 		</tr>
@@ -52,14 +52,14 @@
 			<td class="rightTd">拥有角色:</td>
 			<td>
 				<c:forEach items="${rs }" var="r">
-				<c:if test="${isAdmin}">
-					<a href="<%=request.getContextPath()%>/admin/role/${r.id}" class="list_op">
+				<%-- <c:if test="${isAdmin}"> --%>
+					<a href="<%=request.getContextPath()%>/admin/role/${r.roleId}" class="list_op">
 					[${r.name }]
 					</a>&nbsp;
-				</c:if>
-				<c:if test="${not isAdmin}">
+				<%-- </c:if> --%>
+				<%-- <c:if test="${not isAdmin}"> --%>
 					[${r.name }]
-				</c:if>	
+				<%-- </c:if>	 --%>
 				</c:forEach>
 			</td>
 		</tr>
@@ -67,23 +67,23 @@
 			<td class="rightTd">所在用户组:</td>
 			<td>
 				<c:forEach items="${gs }" var="g">
-				<c:if test="${isAdmin}">
-					<a href="<%=request.getContextPath()%>/admin/group/${g.id}" class="list_op">[${g.name }]</a>&nbsp;
-				</c:if>
-				<c:if test="${not isAdmin}">
+				<%-- <c:if test="${isAdmin}"> --%>
+					<a href="<%=request.getContextPath()%>/admin/group/${g.groupzId}" class="list_op">[${g.name }]</a>&nbsp;
+				<%-- </c:if> --%>
+				<%-- <c:if test="${not isAdmin}"> --%>
 					[${g.name }]
-				</c:if>
+				<%-- </c:if> --%>
 				</c:forEach>
 			</td>
 		</tr>
 		<tr>
 			<td colspan="2" class="centerTd">
-				<c:if test="${isAdmin}">
-				<a href="update/${user.id }" class="list_op">修改用户</a>
-				</c:if>
-				<c:if test="${not isAdmin}">
+				<%-- <c:if test="${isAdmin}"> --%>
+				<a href="update/${user.userId }" class="list_op">修改用户</a>
+				<%-- </c:if> --%>
+				<%-- <c:if test="${not isAdmin}"> --%>
 				<a href="updateSelf" class="list_op">修改个人信息</a>
-				</c:if>
+				<%-- </c:if> --%>
 			</td>
 		</tr>
 	</table>

@@ -18,7 +18,7 @@
 	<sf:form method="post" modelAttribute="group" id="addForm">
 	<table width="800" cellspacing="0" cellPadding="0">
 		<thead><tr><td colspan="2">更新用户组功能</td></tr></thead>
-		<sf:hidden path="id"/>
+		<sf:hidden path="groupzId"/>
 		<tr>
 			<td class="rightTd" width="200px">组名称:</td>
 			<td class="leftTd"><sf:input path="name" size="30"/></td>

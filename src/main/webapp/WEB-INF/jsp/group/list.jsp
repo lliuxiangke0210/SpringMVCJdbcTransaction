@@ -27,15 +27,15 @@
 		<tbody>
 		<c:forEach items="${datas.datas }" var="group">
 			<tr>
-				<td>${group.id }&nbsp;</td>
-				<td><a href="${group.id }" class="list_link">${group.name }</a></td>
+				<td>${group.groupzId }&nbsp;</td>
+				<td><a href="${group.groupzId }" class="list_link">${group.name }</a></td>
 				<td>${group.descr }&nbsp;</td>
 				<td>
-					<a href="delete/${group.id }" class="list_op delete">删除</a>
-					<a href="update/${group.id }" class="list_op">更新</a>
-					<a href="clearUsers/${group.id }" class="list_op delete">清空用户</a>
-					<a href="<%=request.getContextPath() %>/admin/group/listChannels/${group.id }" class="list_op">查询管理栏目</a>
-					<a href="<%=request.getContextPath() %>/admin/group/setChannels/${group.id }" class="list_op">设置管理栏目</a>
+					<a href="delete/${group.groupzId }" class="list_op delete">删除</a>
+					<a href="update/${group.groupzId }" class="list_op">更新</a>
+					<a href="clearUsers/${group.groupzId }" class="list_op delete">清空用户</a>
+					<a href="<%=request.getContextPath() %>/admin/group/listChannels/${group.groupzId }" class="list_op">查询管理栏目</a>
+					<a href="<%=request.getContextPath() %>/admin/group/setChannels/${group.groupzId }" class="list_op">设置管理栏目</a>
 				&nbsp;
 				</td>
 			</tr>

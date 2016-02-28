@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
+import com.dexcoder.commons.pager.Pager;
 import com.springmvcjdbc.model.Groupz;
-import com.springmvcjdbc.model.PagerBean;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.User;
 
@@ -63,7 +63,7 @@ public interface UserServcie {
 	/**
 	 * 列表用户
 	 */
-	public PagerBean<User> findUser();
+	public Pager findUser();
 
 	/**
 	 * 获取用户信息

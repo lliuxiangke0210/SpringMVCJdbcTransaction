@@ -2,8 +2,8 @@ package com.springmvcjdbc.dao;
 
 import java.util.List;
 
+import com.dexcoder.commons.pager.Pager;
 import com.springmvcjdbc.model.Groupz;
-import com.springmvcjdbc.model.PagerBean;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.User;
 import com.springmvcjdbc.model.UserGroup;
@@ -175,6 +175,6 @@ public interface UserDAO {
 
 	void updateUser(User user);
 
-	public PagerBean<User> listPagerUser();
+	public Pager listPagerUser();
 
 }

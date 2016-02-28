@@ -8,13 +8,13 @@ import org.apache.commons.lang3.ArrayUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.dexcoder.commons.pager.Pager;
 import com.springmvcjdbc.commons.utils.SecurityUtil;
 import com.springmvcjdbc.dao.GroupzDAO;
 import com.springmvcjdbc.dao.RoleDAO;
 import com.springmvcjdbc.dao.UserDAO;
 import com.springmvcjdbc.model.CmsException;
 import com.springmvcjdbc.model.Groupz;
-import com.springmvcjdbc.model.PagerBean;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.User;
 import com.springmvcjdbc.service.UserServcie;
@@ -107,6 +107,7 @@ public class UserServcieImpl implements UserServcie {
 				userDao.deleteUserGroup(user.getUserId(), egid);
 			}
 		}
+		this.update(user);
 
 	}
 
@@ -146,7 +147,7 @@ public class UserServcieImpl implements UserServcie {
 	}
 
 	@Override
-	public PagerBean<User> findUser() {
+	public Pager findUser() {
 		return userDao.listPagerUser();
 	}
 

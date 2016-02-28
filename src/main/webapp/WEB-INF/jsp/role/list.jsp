@@ -27,13 +27,13 @@
 		<tbody>
 		<c:forEach items="${roles}" var="role">
 			<tr>
-				<td>${role.id }&nbsp;</td>
-				<td><a href="${role.id }" class="list_link">${role.name }</a></td>
+				<td>${role.roleId }&nbsp;</td>
+				<td><a href="${role.roleId }" class="list_link">${role.name }</a></td>
 				<td>${role.roleType }&nbsp;</td>
 				<td>
-					<a href="delete/${role.id }" class="list_op delete">删除</a>
-					<a href="update/${role.id }" class="list_op">更新</a>
-					<a href="clearUsers/${role.id }" class="list_op delete">清空用户</a>
+					<a href="delete/${role.roleId }" class="list_op delete">删除</a>
+					<a href="update/${role.roleId }" class="list_op">更新</a>
+					<a href="clearUsers/${role.roleId }" class="list_op delete">清空用户</a>
 				&nbsp;
 				</td>
 			</tr>

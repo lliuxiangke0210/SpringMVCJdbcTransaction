@@ -20,7 +20,6 @@ import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
 import com.springmvcjdbc.dao.UserDAO;
 import com.springmvcjdbc.model.Groupz;
-import com.springmvcjdbc.model.PagerBean;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.User;
 import com.springmvcjdbc.model.UserGroup;
@@ -279,18 +278,13 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 	}
 
 	@Override
-	public PagerBean<User> listPagerUser() {
+	public Pager listPagerUser() {
 		User user = new User();
 		PageControl.performPage(user);
 		jdbcDao.queryList(user);
 		Pager pager = PageControl.getPager();
 		List<User> users = pager.getList(User.class);
-		PagerBean<User> pBean = new PagerBean<User>();
-		pBean.setDatas(users);
-		pBean.setOffset(pager.getOffset());
-		pBean.setSize(pager.getItemsPerPage());
-		pBean.setTotal(pager.getItemsTotal());
-		return pBean;
+		return pager;
 	}
 
 }

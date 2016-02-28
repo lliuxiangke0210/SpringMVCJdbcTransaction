@@ -37,11 +37,11 @@ $(function(){
 	<h3 class="navTitle">
 		<span class="navTilteTxt">文章管理</span>
 	</h3>
-	<c:if test="${isAdmin }">
+	<%-- <c:if test="${isAdmin }"> --%>
 	<li class="navChild">
 		<a href="<%=request.getContextPath() %>/admin/channel/channels" target="content">栏目信息管理</a>
 	</li>
-	</c:if>
+	<%-- </c:if> --%>
 	<li class="navChild">
 		<a href="<%=request.getContextPath() %>/admin/topic/audits" target="content">文章信息管理</a>
 	</li>
