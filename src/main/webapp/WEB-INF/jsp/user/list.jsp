@@ -8,9 +8,11 @@
 <head>
 <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 <link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/css/admin/main.css"/>
+<link rel="stylesheet" type="text/css" href="<%=request.getContextPath() %>/resources/bootstrap/css/bootstrap.min.css"/>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/jquery-1.7.2.min.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/core/jquery.cms.core.js"></script>
 <script type="text/javascript" src="<%=request.getContextPath() %>/resources/js/admin/main.js"></script>
+<script type="text/javascript" src="<%=request.getContextPath() %>/resources/bootstrap/js/bootstrap.min.js"></script>
 </head>
 <body>
 <div id="content">
@@ -62,11 +64,20 @@
 		<tfoot>
 		<tr>
 			<td colspan="6" style="text-align:right;margin-right:10px;">
-			<jsp:include page="/jsp/pager.jsp">
+		       <%-- <jsp:include page="/jsp/pager2.jsp">
 				<jsp:param value="${datas.total }" name="totalRecord"/>
 				<jsp:param value="${datas.size }" name="pageSize"/>
 				<jsp:param value="users" name="url"/>
-			</jsp:include>
+				</jsp:include>  --%> 
+				<div class="pagination">
+				  <ul>
+				    <c:forEach var ="i" begin="1"  end= "${datas.size }">  
+                      <li><a href="users/${i}">${i}</a></li>
+                     </c:forEach>   
+				  </ul>
+                </div>
+			
+				
 			</td>
 		</tr>
 		</tfoot>

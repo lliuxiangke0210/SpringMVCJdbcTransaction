@@ -2,6 +2,7 @@ package com.springmvcjdbc.controller;
 
 import java.util.List;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -42,7 +43,10 @@ public class UserController {
 	private GroupServcieImpl groupServcie;
 
 	@RequestMapping(value = { "/users" }, method = RequestMethod.GET)
-	public ModelAndView list(ModelAndView model) { // oo
+	public ModelAndView list(ModelAndView model, HttpServletRequest request) { // oo
+
+		// String id = request.getParameter("pager.offset");
+		// System.out.println(id);
 		Pager pager = userServcie.findUser();
 		PagerBean<User> pBean = new PagerBean<User>();
 		pBean.setDatas(pager.getList(User.class));

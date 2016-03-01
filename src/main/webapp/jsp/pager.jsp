@@ -12,9 +12,7 @@
 	<pg:last>
 		${pageNumber } 页[${param.totalRecord }条记录],每页显示${param.pageSize }条,
 	</pg:last>
-	<c:forEach items="${param.params }" var="p">
-		<pg:param name="${p }"/>
-	</c:forEach>
+	
 	<pg:first>
 		<a href="${pageUrl }" class="pager_link">首页</a>
 	</pg:first>
