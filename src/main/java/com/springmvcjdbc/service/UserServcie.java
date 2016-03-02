@@ -63,7 +63,7 @@ public interface UserServcie {
 	/**
 	 * 列表用户
 	 */
-	public Pager findUser();
+	public Pager findUser(Integer offset, Integer pageSize);
 
 	/**
 	 * 获取用户信息

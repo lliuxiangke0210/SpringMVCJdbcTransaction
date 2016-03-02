@@ -175,6 +175,6 @@ public interface UserDAO {
 
 	void updateUser(User user);
 
-	public Pager listPagerUser();
+	public Pager listPagerUser(Integer offset, Integer pageSize);
 
 }

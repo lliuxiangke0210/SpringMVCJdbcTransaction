@@ -147,8 +147,8 @@ public class UserServcieImpl implements UserServcie {
 	}
 
 	@Override
-	public Pager findUser() {
-		return userDao.listPagerUser();
+	public Pager findUser(Integer offset, Integer pageSize) {
+		return userDao.listPagerUser(offset, pageSize);
 	}
 
 	@Override

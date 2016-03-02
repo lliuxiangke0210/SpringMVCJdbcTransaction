@@ -2,7 +2,6 @@ package com.springmvcjdbc.controller;
 
 import java.util.List;
 
-import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
@@ -12,6 +11,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.dexcoder.commons.pager.Pager;
@@ -43,16 +43,21 @@ public class UserController {
 	private GroupServcieImpl groupServcie;
 
 	@RequestMapping(value = { "/users" }, method = RequestMethod.GET)
-	public ModelAndView list(ModelAndView model, HttpServletRequest request) { // oo
-
-		// String id = request.getParameter("pager.offset");
-		// System.out.println(id);
-		Pager pager = userServcie.findUser();
+	public ModelAndView list(ModelAndView model,
+			@RequestParam(value = "curPage", defaultValue = "1", required = false) Integer curPage) { // oo
+		Pager pager = userServcie.findUser(curPage, 10);
 		PagerBean<User> pBean = new PagerBean<User>();
 		pBean.setDatas(pager.getList(User.class));
 		pBean.setOffset(pager.getOffset());
 		pBean.setSize(pager.getItemsPerPage());
 		pBean.setTotal(pager.getItemsTotal());
+		pBean.setPrePage(pager.getPreviousPage());
+		pBean.setNextPage(pager.getNextPage());
+		pBean.setCurPage(pager.getCurPage());
+		pBean.setCurPage(pager.getPages());
+		pBean.setPages(pager.getPages());
+		pBean.setLastIndex(pager.getLastPage());
+		pBean.setSlider(pager.getSlider(10));
 		model.addObject("datas", pBean);
 		model.setViewName("user/list");
 		return model;
@@ -124,7 +129,7 @@ public class UserController {
 		return model;
 	}
 
-	@RequestMapping(value = "/{id}", method = RequestMethod.GET)
+	@RequestMapping(value = "{id}", method = RequestMethod.GET)
 	public ModelAndView show(@PathVariable int id, ModelAndView model) {
 		model.addObject("user", userServcie.load(id));
 		model.addObject("gs", userServcie.listUserGroups(id));

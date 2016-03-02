@@ -278,10 +278,10 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 	}
 
 	@Override
-	public Pager listPagerUser() {
+	public Pager listPagerUser(Integer offset, Integer pageSize) {
 		User user = new User();
 		// 直接传入页码和每页条数
-		PageControl.performPage(2, 10);
+		PageControl.performPage(offset, pageSize);
 		jdbcDao.queryList(user);
 		Pager pager = PageControl.getPager();
 		List<User> users = pager.getList(User.class);

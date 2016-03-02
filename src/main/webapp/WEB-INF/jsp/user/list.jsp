@@ -19,6 +19,8 @@
 	<h3 class="admin_link_bar">
 		<jsp:include page="inc.jsp"></jsp:include>
 	</h3>
+	<div><span></span></div>
+	<span></span>
 	<table width="800" cellspacing="0" cellPadding="0" id="listTable">
 		<thead>
 		<tr>
@@ -64,20 +66,15 @@
 		<tfoot>
 		<tr>
 			<td colspan="6" style="text-align:right;margin-right:10px;">
-		       <%-- <jsp:include page="/jsp/pager2.jsp">
+		       <%-- <jsp:include page="/jsp/pager.jsp">
 				<jsp:param value="${datas.total }" name="totalRecord"/>
 				<jsp:param value="${datas.size }" name="pageSize"/>
 				<jsp:param value="users" name="url"/>
-				</jsp:include>  --%> 
-				<div class="pagination">
-				  <ul>
-				    <c:forEach var ="i" begin="1"  end= "${datas.size }">  
-                      <li><a href="users/${i}">${i}</a></li>
-                     </c:forEach>   
-				  </ul>
-                </div>
-			
-				
+				</jsp:include>  --%>
+			  <jsp:include page="/jsp/pager2.jsp">
+				<jsp:param value="${datas}" name="datas"/>
+				<jsp:param value="users" name="url"/>
+				</jsp:include> 
 			</td>
 		</tr>
 		</tfoot>
