@@ -1,4 +1,4 @@
-package com.springmvcjdbc.cms.auth;
+package com.springmvcjdbc.commons.utils;
 
 import java.io.File;
 import java.io.FilenameFilter;
@@ -7,6 +7,9 @@ import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
 import java.util.Set;
+
+import com.springmvcjdbc.cms.auth.AuthClass;
+import com.springmvcjdbc.cms.auth.AuthMethod;
 
 public class AuthUtil {
 	/**

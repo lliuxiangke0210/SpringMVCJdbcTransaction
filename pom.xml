@@ -200,6 +200,35 @@
 			<artifactId>aspectjweaver</artifactId>
 			<version>1.8.4</version>
 		</dependency>
+		
+	  <dependency>
+	<groupId>com.belerweb</groupId>
+	<artifactId>pinyin4j</artifactId>
+	<version>2.5.0</version>
+</dependency>
+	            
+    <dependency>
+		<groupId>commons-beanutils</groupId>
+		<artifactId>commons-beanutils</artifactId>
+		<version>1.8.3</version>
+	</dependency>
+	
+	<dependency>
+		<groupId>org.apache.commons</groupId>
+		<artifactId>commons-compress</artifactId>
+		<version>1.5</version>
+	</dependency>
+	<dependency>
+		<groupId>commons-io</groupId>
+		<artifactId>commons-io</artifactId>
+		<version>2.4</version>
+	</dependency>
+		
+	<dependency>
+	  <groupId>org.freemarker</groupId>
+	  <artifactId>freemarker</artifactId>
+	  <version>2.3.20</version>
+	</dependency>
 		<!-- 导入dbcp的jar包，用来在applicationContext.xml中配置数据库 -->
 		<dependency>
 			<groupId>commons-dbcp</groupId>

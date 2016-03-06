@@ -1,8 +1,10 @@
 package com.springmvcjdbc.model;
 
+import com.dexcoder.dal.annotation.Column;
+
 public class Channel {
-	public static final String ROOT_NAME = "网站系统栏目";
-	public static final Integer ROOT_ID = 0;
+
+	private static final long serialVersionUID = 1L;
 	/**
 	 * 栏目的主键
 	 */
@@ -10,11 +12,11 @@ public class Channel {
 	/**
 	 * 栏目的名称
 	 */
-	private String name;
+	private String channelName;
 	/**
 	 * 栏目是否是自定义链接，0表示否，1表示是
 	 */
-	private Integer customLink;
+	private Integer isCustomLink;
 	/**
 	 * 自定义链接的地址
 	 */
@@ -22,7 +24,7 @@ public class Channel {
 	/**
 	 * 栏目的类型，枚举类型，该枚举中存在一个name属性用来标识中文的名称
 	 */
-	private ChannelType type;
+	private String channelType;
 	/**
 	 * 是否是首页栏目，0表示否，1表示是
 	 */
@@ -34,11 +36,11 @@ public class Channel {
 	/**
 	 * 是否是推荐栏目，0表示否，1表示是
 	 */
-	private Integer recommend;
+	private Integer isRecommend;
 	/**
 	 * 栏目的状态，0表示启用，1表示停止
 	 */
-	private Integer status;
+	private Integer channelStatus;
 	/**
 	 * 栏目的序号
 	 */
@@ -52,6 +54,30 @@ public class Channel {
 	 */
 	private Integer navOrder;
 
+	public Channel() {
+	}
+
+	public Channel(Integer channelId, String channelName) {
+		super();
+		this.channelId = channelId;
+		this.channelName = channelName;
+	}
+
+	public Channel(Integer channelId, String channelName, String ct) {
+		super();
+		this.channelId = channelId;
+		this.channelName = channelName;
+		this.channelType = ct;
+	}
+
+	public Channel(Integer channelId, String channelName, Integer isCustomLink, String customLinkUrl) {
+		super();
+		this.channelId = channelId;
+		this.channelName = channelName;
+		this.isCustomLink = isCustomLink;
+		this.customLinkUrl = customLinkUrl;
+	}
+
 	public Integer getChannelId() {
 		return channelId;
 	}
@@ -60,20 +86,20 @@ public class Channel {
 		this.channelId = channelId;
 	}
 
-	public String getName() {
-		return name;
+	public String getChannelName() {
+		return channelName;
 	}
 
-	public void setName(String name) {
-		this.name = name;
+	public void setChannelName(String channelName) {
+		this.channelName = channelName;
 	}
 
-	public Integer getCustomLink() {
-		return customLink;
+	public Integer getIsCustomLink() {
+		return isCustomLink;
 	}
 
-	public void setCustomLink(Integer customLink) {
-		this.customLink = customLink;
+	public void setIsCustomLink(Integer isCustomLink) {
+		this.isCustomLink = isCustomLink;
 	}
 
 	public String getCustomLinkUrl() {
@@ -84,12 +110,12 @@ public class Channel {
 		this.customLinkUrl = customLinkUrl;
 	}
 
-	public ChannelType getType() {
-		return type;
+	public String getChannelType() {
+		return channelType;
 	}
 
-	public void setType(ChannelType type) {
-		this.type = type;
+	public void setChannelType(String channelType) {
+		this.channelType = channelType;
 	}
 
 	public Integer getIsIndex() {
@@ -108,20 +134,20 @@ public class Channel {
 		this.isTopNav = isTopNav;
 	}
 
-	public Integer getRecommend() {
-		return recommend;
+	public Integer getIsRecommend() {
+		return isRecommend;
 	}
 
-	public void setRecommend(Integer recommend) {
-		this.recommend = recommend;
+	public void setIsRecommend(Integer isRecommend) {
+		this.isRecommend = isRecommend;
 	}
 
-	public Integer getStatus() {
-		return status;
+	public Integer getChannelStatus() {
+		return channelStatus;
 	}
 
-	public void setStatus(Integer status) {
-		this.status = status;
+	public void setChannelStatus(Integer channelStatus) {
+		this.channelStatus = channelStatus;
 	}
 
 	public Integer getOrders() {
@@ -132,6 +158,7 @@ public class Channel {
 		this.orders = orders;
 	}
 
+	@Column(name = "`parent_id`")
 	public Channel getParent() {
 		return parent;
 	}
@@ -148,35 +175,8 @@ public class Channel {
 		this.navOrder = navOrder;
 	}
 
-	public static String getRootName() {
-		return ROOT_NAME;
+	public static long getSerialversionuid() {
+		return serialVersionUID;
 	}
 
-	public static Integer getRootId() {
-		return ROOT_ID;
-	}
-
-	public Channel() {
-	}
-
-	public Channel(Integer channelId, String name) {
-		super();
-		this.channelId = channelId;
-		this.name = name;
-	}
-
-	public Channel(Integer channelId, String name, ChannelType ct) {
-		super();
-		this.channelId = channelId;
-		this.name = name;
-		this.type = ct;
-	}
-
-	public Channel(Integer channelId, String name, Integer customLink, String customLinkUrl) {
-		super();
-		this.channelId = channelId;
-		this.name = name;
-		this.customLink = customLink;
-		this.customLinkUrl = customLinkUrl;
-	}
 }

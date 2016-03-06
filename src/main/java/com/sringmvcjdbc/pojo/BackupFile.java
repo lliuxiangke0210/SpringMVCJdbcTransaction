@@ -1,4 +1,4 @@
-package com.springmvcjdbc.cms.auth;
+package com.sringmvcjdbc.pojo;
 
 import java.util.Date;
 

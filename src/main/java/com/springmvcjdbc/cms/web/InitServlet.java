@@ -10,7 +10,7 @@ import javax.servlet.http.HttpServlet;
 import org.springframework.web.context.WebApplicationContext;
 import org.springframework.web.context.support.WebApplicationContextUtils;
 
-import com.springmvcjdbc.cms.auth.AuthUtil;
+import com.springmvcjdbc.commons.utils.AuthUtil;
 
 public class InitServlet extends HttpServlet {
 

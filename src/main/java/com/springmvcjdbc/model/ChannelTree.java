@@ -39,6 +39,13 @@ public class ChannelTree {
 	public ChannelTree() {
 	}
 
+	public ChannelTree(Integer channelTreeId, String name, Integer pid) {
+		super();
+		this.channelTreeId = channelTreeId;
+		this.name = name;
+		this.pid = pid;
+	}
+
 	@Override
 	public String toString() {
 		return "ChannelTree [channelTreeId=" + channelTreeId + ", name=" + name + ", pid=" + pid + "]";

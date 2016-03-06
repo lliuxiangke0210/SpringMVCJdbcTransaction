@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import com.springmvcjdbc.dao.DepartmentDAO;
+import com.springmvcjdbc.dao.test.ChannelDAOTest;
 import com.springmvcjdbc.model.Department;
 
 @Controller
@@ -20,6 +21,9 @@ public class MainController {
 
 	@Autowired
 	private DepartmentDAO departmentDAO;
+
+	@Autowired
+	private ChannelDAOTest channelDAOTest;
 
 	@RequestMapping(value = { "/" }, method = RequestMethod.GET)
 	public ModelAndView welcomePage(ModelAndView model) {
@@ -58,6 +62,14 @@ public class MainController {
 		ModelAndView model = new ModelAndView("deptform");
 		model.addObject("department", department);
 
+		return model;
+	}
+
+	@RequestMapping(value = "/addChannel", method = RequestMethod.GET)
+	public ModelAndView addChannel(HttpServletRequest request, ModelAndView model) {
+
+		channelDAOTest.insertChannel();
+		model.setViewName("home");
 		return model;
 	}
 

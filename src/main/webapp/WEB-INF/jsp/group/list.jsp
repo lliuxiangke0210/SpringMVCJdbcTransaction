@@ -46,6 +46,7 @@
 			<td colspan="6" style="text-align:right;margin-right:10px;">
 			<jsp:include page="/jsp/pager.jsp">
 				<jsp:param value="${datas.total }" name="totalRecord"/>
+				<jsp:param value="${datas.size }" name="pageSize"/>
 				<jsp:param value="groups" name="url"/>
 			</jsp:include>
 			</td>

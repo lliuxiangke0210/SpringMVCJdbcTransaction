@@ -80,7 +80,7 @@ public class UserController {
 	public ModelAndView add(@Valid UserDto userDto, BindingResult br, ModelAndView model) {// oo
 		if (br.hasErrors()) {
 			initAddUser(model);
-			model.setViewName("user/add");
+			model.setViewName("/user/add");
 			return model;
 		}
 		userServcie.add(userDto.getUser(), userDto.getRoleIds(), userDto.getGroupIds());
