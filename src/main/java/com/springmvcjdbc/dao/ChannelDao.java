@@ -88,4 +88,6 @@ public interface ChannelDao {
 	public List<Channel> listChannelByType(ChannelType ct);
 
 	public void insertChannel(Channel channel);
+
+	public Channel getChannelById(Integer channelId);
 }

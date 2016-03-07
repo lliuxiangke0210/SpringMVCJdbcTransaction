@@ -68,7 +68,9 @@ public class MainController {
 	@RequestMapping(value = "/addChannel", method = RequestMethod.GET)
 	public ModelAndView addChannel(HttpServletRequest request, ModelAndView model) {
 
-		channelDAOTest.insertChannel();
+		// channelDAOTest.insertChannel();
+		// channelDAOTest.testListByParent();
+		channelDAOTest.testgetMaxOrderByParent();
 		model.setViewName("home");
 		return model;
 	}

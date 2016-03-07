@@ -42,19 +42,39 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 	public List<Channel> listByParent(Integer pid) {
 		Gson gson = new Gson();
 		String sql = "select * from channel where parent_id=? order by orders";
-		if (pid == null || pid == 0)
-			sql = "select * from channel where parent_id is null order by orders";
 		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql, new Object[] { pid });
+		if (pid == null || pid == 0) {
+			sql = "select * from channel where parent_id is null order by orders";
+			maps = jdbcDao.queryRowMapListForSql(sql);
+		}
 		List<Channel> channels = gson.fromJson(gson.toJson(maps), new TypeToken<List<Channel>>() {
 		}.getType());
 
+		if (pid != null) {
+			Channel parent = this.getChannelById(pid);
+			for (Channel channel : channels) {
+				channel.setParent(parent);
+			}
+			return channels;
+		}
 		return channels;
+
 	}
 
 	@Override
 	public int getMaxOrderByParent(Integer pid) {
-		// TODO Auto-generated method stub
-		return 0;
+
+		String sql = "select max(orders) as maxOrder from channel  where parent_id=? ";
+		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql, new Object[] { pid });
+		if (pid == null || pid == 0) {
+			sql = "select max(orders) as maxOrder from channel  where parent_id is null ";
+			maps = jdbcDao.queryRowMapListForSql(sql);
+		}
+		if (maps.isEmpty() || maps.size() == 0) {
+			return 0;
+		}
+		Object maxOrder = maps.get(0).get("maxOrder");
+		return (Integer) maxOrder;
 	}
 
 	@Override
@@ -128,6 +148,14 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 				channel.getIsRecommend(), channel.getChannelStatus(), channel.getOrders(),
 				channel.getParent().getChannelId(), channel.getNavOrder() };
 		jdbcDao.updateForSql(insertSql, objs);
+
+	}
+
+	@Override
+	public Channel getChannelById(Integer channelId) {
+
+		Channel parent = jdbcDao.get(Channel.class, (long) channelId);
+		return parent;
 
 	}
 
