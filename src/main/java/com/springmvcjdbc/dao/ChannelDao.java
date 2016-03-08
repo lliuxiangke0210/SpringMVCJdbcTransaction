@@ -4,7 +4,6 @@ import java.util.List;
 
 import com.springmvcjdbc.model.Channel;
 import com.springmvcjdbc.model.ChannelTree;
-import com.springmvcjdbc.model.ChannelType;
 
 public interface ChannelDao {
 	/**
@@ -57,7 +56,7 @@ public interface ChannelDao {
 	 * 
 	 * @return
 	 */
-	public List<Channel> listAllIndexChannel(ChannelType ct);
+	public List<Channel> listAllIndexChannel(String channelType);
 
 	public List<Channel> listTopNavChannel();
 
@@ -85,7 +84,7 @@ public interface ChannelDao {
 	 * @param ct
 	 * @return
 	 */
-	public List<Channel> listChannelByType(ChannelType ct);
+	public List<Channel> listChannelByType(String channelType);
 
 	public void insertChannel(Channel channel);
 

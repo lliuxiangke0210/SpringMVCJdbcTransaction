@@ -70,7 +70,8 @@ public class MainController {
 
 		// channelDAOTest.insertChannel();
 		// channelDAOTest.testListByParent();
-		channelDAOTest.testgetMaxOrderByParent();
+		// channelDAOTest.testgetMaxOrderByParent();
+		channelDAOTest.testGenerateTree();
 		model.setViewName("home");
 		return model;
 	}

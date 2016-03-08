@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import com.springmvcjdbc.dao.ChannelDao;
 import com.springmvcjdbc.model.Channel;
+import com.springmvcjdbc.model.ChannelTree;
 import com.springmvcjdbc.model.ChannelType;
 
 @Service
@@ -67,9 +68,17 @@ public class ChannelDAOTest {
 
 	public void testgetMaxOrderByParent() {
 
-		int maxOrder = channelDao.getMaxOrderByParent(0);
+		int maxOrder = channelDao.getMaxOrderByParent(null);
 		System.out.println(maxOrder);
 
+	}
+
+	public void testGenerateTree() {
+
+		List<ChannelTree> channelTrees = channelDao.generateTree();
+		for (ChannelTree channelTree : channelTrees) {
+			System.out.println(channelTree);
+		}
 	}
 
 }

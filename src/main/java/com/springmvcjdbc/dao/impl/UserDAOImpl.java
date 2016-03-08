@@ -267,7 +267,6 @@ public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
 
 	@Override
 	public void addUser(User user) {
-
 		jdbcDao.insert(user);
 	}
 
