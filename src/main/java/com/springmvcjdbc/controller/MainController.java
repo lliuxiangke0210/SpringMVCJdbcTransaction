@@ -71,7 +71,17 @@ public class MainController {
 		// channelDAOTest.insertChannel();
 		// channelDAOTest.testListByParent();
 		// channelDAOTest.testgetMaxOrderByParent();
-		channelDAOTest.testGenerateTree();
+		// channelDAOTest.testGenerateTree();
+		// channelDAOTest.generateTreeByParent();
+		// channelDAOTest.updateSort();
+		// channelDAOTest.listPublishChannel();
+		// channelDAOTest.listAllIndexChannel();
+		// channelDAOTest.listTopNavChannel();
+		// channelDAOTest.loadFirstChannelByNav();
+		// channelDAOTest.listUseChannelByParent();
+		// channelDAOTest.listChannelByType();
+		// channelDAOTest.insertChannelGroups();
+		channelDAOTest.deleteChannelGroups();
 		model.setViewName("home");
 		return model;
 	}

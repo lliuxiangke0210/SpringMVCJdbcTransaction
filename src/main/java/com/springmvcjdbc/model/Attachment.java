@@ -3,9 +3,10 @@ package com.springmvcjdbc.model;
 import java.util.Date;
 
 public class Attachment {
+
 	private Integer attachmentId;
 	/**
-	 * 附件上传之后的名称
+	 * 附件上传之后的名称y
 	 */
 	private String newName;
 	/**

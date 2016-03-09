@@ -4,6 +4,7 @@ import java.util.List;
 
 import com.springmvcjdbc.model.Channel;
 import com.springmvcjdbc.model.ChannelTree;
+import com.springmvcjdbc.model.GroupChannel;
 
 public interface ChannelDao {
 	/**
@@ -89,4 +90,6 @@ public interface ChannelDao {
 	public void insertChannel(Channel channel);
 
 	public Channel getChannelById(Integer channelId);
+
+	public void insertChannelGroups(GroupChannel groupChannel);
 }

@@ -17,6 +17,7 @@ import com.springmvcjdbc.dao.ChannelDao;
 import com.springmvcjdbc.model.Channel;
 import com.springmvcjdbc.model.ChannelTree;
 import com.springmvcjdbc.model.ChannelType;
+import com.springmvcjdbc.model.GroupChannel;
 
 @Service
 @Transactional
@@ -89,7 +90,7 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 	}
 
 	@Override
-	public List<ChannelTree> generateTreeByParent(Integer pid) {
+	public List<ChannelTree> generateTreeByParent(Integer pid) {// oo
 		Gson gson = new Gson();
 		if (pid == null || pid == 0) {
 			String sql = "select channel_id as channelTreeId,channel_name as name,parent_id as pid from channel where parent_id=0 or parent_id is null order by orders";
@@ -107,7 +108,7 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 	}
 
 	@Override
-	public void updateSort(Integer[] ids) {
+	public void updateSort(Integer[] ids) { // oo
 		int index = 1;
 		String sql = "update channel  set orders=? where channel_id=?";
 		for (Integer id : ids) {
@@ -116,7 +117,7 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 	}
 
 	@Override
-	public List<Channel> listPublishChannel() {
+	public List<Channel> listPublishChannel() {// oo
 		Gson gson = new Gson();
 		String sql = "select  *  from channel where channel_status=0 and channel_type !=?";
 		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql, new Object[] { ChannelType.NAV_CHANNEL });
@@ -126,11 +127,11 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 	}
 
 	@Override
-	public List<Channel> listAllIndexChannel(String channelType) {
+	public List<Channel> listAllIndexChannel(String channelType) {// oo
 		Gson gson = new Gson();
 		String sql = "select * from channel where channel_status=0 and is_index=1";
 		if (channelType != null) {
-			sql += "  and channel_type=" + channelType;
+			sql += "  and channel_type=" + "'" + channelType + "'";
 		}
 		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql);
 		List<Channel> channels = gson.fromJson(gson.toJson(maps), new TypeToken<List<Channel>>() {
@@ -139,7 +140,7 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 	}
 
 	@Override
-	public List<Channel> listTopNavChannel() {
+	public List<Channel> listTopNavChannel() {// oo
 		Gson gson = new Gson();
 		String sql = "select * from  channel where channel_status=0 and is_top_nav=1 order by nav_order ";
 		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql);
@@ -149,16 +150,24 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 	}
 
 	@Override
-	public void deleteChannelGroups(int cid) {
-		String sql = "delete group_channel  where channel_id=?";
+	public void deleteChannelGroups(int cid) { // oo
+		String sql = "delete from group_channel  where channel_id=?";
 		jdbcDao.updateForSql(sql, new Object[] { cid });
 	}
 
 	@Override
-	public Channel loadFirstChannelByNav(int pid) {
+	public void insertChannelGroups(GroupChannel groupChannel) { // oo
+
+		String insertSql = " INSERT INTO group_channel ( channel_id, groupz_id) VALUES (?,?)";
+		Object[] objs = new Object[] { 2, 3 };
+		jdbcDao.updateForSql(insertSql, objs);
+	}
+
+	@Override
+	public Channel loadFirstChannelByNav(int pid) {// oo
 		Gson gson = new Gson();
 		String sql = "select  * from channel where parent_id=? order by orders limit 0, 1";
-		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql);
+		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql, new Object[] { pid });
 		if (maps.isEmpty() || maps.size() == 0) {
 			return null;
 		}
@@ -169,12 +178,24 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 
 	@Override
 	public List<Channel> listUseChannelByParent(Integer pid) {
-		// String sql= "select * from channel a left join channel b
-		// on(a.parent_id=b.channel_id) where b.channel_id="+pid+" and
-		// b.channel_status=0 order by a.orders ";
-		// if(pid==null||pid==0) sql = "select * from channel c where c.parent
-		// is null and cp.status=0 order by c.orders";
-		return null;
+		Gson gson = new Gson();
+		String sql = "select * from channel a left join channel b on(a.parent_id=b.channel_id) where b.channel_id="
+				+ pid + " and b.channel_status=0 order by a.orders ";
+		if (pid == null || pid == 0)
+			sql = "select * from channel  where parent_id is null or parent_id=0  and channel_status=0  order by orders";
+		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql);
+		List<Channel> channels = gson.fromJson(gson.toJson(maps), new TypeToken<List<Channel>>() {
+		}.getType());
+
+		if (pid != null) {
+			Channel parent = this.getChannelById(pid);
+			for (Channel channel : channels) {
+				channel.setParent(parent);
+			}
+			return channels;
+		}
+
+		return channels;
 	}
 
 	@Override

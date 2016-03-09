@@ -2,9 +2,11 @@ package com.springmvcjdbc.model;
 
 import java.nio.channels.Channel;
 
+import com.dexcoder.dal.annotation.Column;
+
 public class GroupChannel {
 	private Integer groupChannelId;
-	private Groupz group;
+	private Groupz groupz;
 	private Channel channel;
 
 	public Integer getGroupChannelId() {
@@ -15,14 +17,16 @@ public class GroupChannel {
 		this.groupChannelId = groupChannelId;
 	}
 
-	public Groupz getGroup() {
-		return group;
+	@Column(name = "`groupz_id`")
+	public Groupz getGroupz() {
+		return groupz;
 	}
 
-	public void setGroup(Groupz group) {
-		this.group = group;
+	public void setGroupz(Groupz groupz) {
+		this.groupz = groupz;
 	}
 
+	@Column(name = "`channel_id`")
 	public Channel getChannel() {
 		return channel;
 	}
