@@ -11,15 +11,15 @@ import org.springframework.transaction.annotation.Transactional;
 
 import com.dexcoder.dal.JdbcDao;
 import com.dexcoder.dal.build.Criteria;
-import com.springmvcjdbc.dao.RoleDAO;
+import com.springmvcjdbc.dao.RoleDao;
 import com.springmvcjdbc.model.Role;
 
 @Service
 @Transactional
-public class RoleDAOImpl extends JdbcDaoSupport implements RoleDAO {
+public class RoleDaoImpl extends JdbcDaoSupport implements RoleDao {
 
 	@Autowired
-	public RoleDAOImpl(DataSource dataSource) {
+	public RoleDaoImpl(DataSource dataSource) {
 		this.setDataSource(dataSource);
 	}
 

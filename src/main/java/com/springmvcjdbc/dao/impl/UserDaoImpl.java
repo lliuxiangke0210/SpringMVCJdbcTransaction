@@ -18,7 +18,7 @@ import com.dexcoder.dal.spring.page.PageControl;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 import com.google.gson.reflect.TypeToken;
-import com.springmvcjdbc.dao.UserDAO;
+import com.springmvcjdbc.dao.UserDao;
 import com.springmvcjdbc.model.Groupz;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.User;
@@ -27,10 +27,10 @@ import com.springmvcjdbc.model.UserRole;
 
 @Service
 @Transactional
-public class UserDAOImpl extends JdbcDaoSupport implements UserDAO {
+public class UserDaoImpl extends JdbcDaoSupport implements UserDao {
 
 	@Autowired
-	public UserDAOImpl(DataSource dataSource) {
+	public UserDaoImpl(DataSource dataSource) {
 		this.setDataSource(dataSource);
 	}
 

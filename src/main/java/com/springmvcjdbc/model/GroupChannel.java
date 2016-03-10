@@ -1,7 +1,5 @@
 package com.springmvcjdbc.model;
 
-import java.nio.channels.Channel;
-
 import com.dexcoder.dal.annotation.Column;
 
 public class GroupChannel {

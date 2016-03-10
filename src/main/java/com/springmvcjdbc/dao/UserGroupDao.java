@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.springmvcjdbc.model.UserGroup;
 
-public interface UserGroupDAO {
+public interface UserGroupDao {
 
 	public UserGroup findUserGroup(Integer userGroupId);
 

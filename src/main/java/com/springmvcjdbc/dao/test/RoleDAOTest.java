@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springmvcjdbc.dao.RoleDAO;
+import com.springmvcjdbc.dao.RoleDao;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.RoleType;
 
@@ -13,13 +13,13 @@ import com.springmvcjdbc.model.RoleType;
 public class RoleDAOTest {
 
 	@Autowired
-	private RoleDAO roleDAO;
+	private RoleDao roleDAO;
 
-	public RoleDAO getRoleDAO() {
+	public RoleDao getRoleDAO() {
 		return roleDAO;
 	}
 
-	public void setRoleDAO(RoleDAO roleDAO) {
+	public void setRoleDAO(RoleDao roleDAO) {
 		this.roleDAO = roleDAO;
 	}
 

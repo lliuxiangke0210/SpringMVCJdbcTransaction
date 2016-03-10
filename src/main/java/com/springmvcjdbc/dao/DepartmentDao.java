@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.springmvcjdbc.model.Department;
 
-public interface DepartmentDAO {
+public interface DepartmentDao {
 
 	public Department findDepartment(int deptNo);
 

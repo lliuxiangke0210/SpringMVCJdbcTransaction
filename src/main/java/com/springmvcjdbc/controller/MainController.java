@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
-import com.springmvcjdbc.dao.DepartmentDAO;
+import com.springmvcjdbc.dao.DepartmentDao;
 import com.springmvcjdbc.dao.test.ChannelDAOTest;
 import com.springmvcjdbc.model.Department;
 
@@ -20,7 +20,7 @@ import com.springmvcjdbc.model.Department;
 public class MainController {
 
 	@Autowired
-	private DepartmentDAO departmentDAO;
+	private DepartmentDao departmentDAO;
 
 	@Autowired
 	private ChannelDAOTest channelDAOTest;

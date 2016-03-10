@@ -6,9 +6,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dexcoder.commons.pager.Pager;
-import com.springmvcjdbc.dao.GroupzDAO;
-import com.springmvcjdbc.dao.RoleDAO;
-import com.springmvcjdbc.dao.UserDAO;
+import com.springmvcjdbc.dao.GroupzDao;
+import com.springmvcjdbc.dao.RoleDao;
+import com.springmvcjdbc.dao.UserDao;
 import com.springmvcjdbc.model.ChannelTree;
 import com.springmvcjdbc.model.CmsException;
 import com.springmvcjdbc.model.GroupChannel;
@@ -20,11 +20,11 @@ import com.springmvcjdbc.service.GroupService;
 public class GroupServcieImpl implements GroupService {
 
 	@Autowired
-	private UserDAO userDao;
+	private UserDao userDao;
 	@Autowired
-	private RoleDAO roleDao;
+	private RoleDao roleDao;
 	@Autowired
-	private GroupzDAO groupDao;
+	private GroupzDao groupDao;
 
 	@Override
 	public void add(Groupz groupz) {

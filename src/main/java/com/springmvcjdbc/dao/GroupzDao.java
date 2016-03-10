@@ -1,14 +1,14 @@
 package com.springmvcjdbc.dao;
 
-import java.nio.channels.Channel;
 import java.util.List;
 
 import com.dexcoder.commons.pager.Pager;
+import com.springmvcjdbc.model.Channel;
 import com.springmvcjdbc.model.ChannelTree;
 import com.springmvcjdbc.model.GroupChannel;
 import com.springmvcjdbc.model.Groupz;
 
-public interface GroupzDAO {
+public interface GroupzDao {
 
 	public Groupz findGroupz(Integer groupzId);
 

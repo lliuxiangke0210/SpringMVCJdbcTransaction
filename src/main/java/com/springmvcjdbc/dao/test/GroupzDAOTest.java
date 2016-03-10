@@ -6,20 +6,20 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.dexcoder.commons.pager.Pager;
-import com.springmvcjdbc.dao.GroupzDAO;
+import com.springmvcjdbc.dao.GroupzDao;
 import com.springmvcjdbc.model.Groupz;
 
 @Service
 public class GroupzDAOTest {
 
 	@Autowired
-	private GroupzDAO groupzDAO;
+	private GroupzDao groupzDAO;
 
-	public GroupzDAO getGroupzDAO() {
+	public GroupzDao getGroupzDAO() {
 		return groupzDAO;
 	}
 
-	public void setGroupzDAO(GroupzDAO groupzDAO) {
+	public void setGroupzDAO(GroupzDao groupzDAO) {
 		this.groupzDAO = groupzDAO;
 	}
 

@@ -21,13 +21,13 @@ import com.springmvcjdbc.model.GroupChannel;
 
 @Service
 @Transactional
-public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
+public class ChannelDaoImpl extends JdbcDaoSupport implements ChannelDao {
 
 	@Autowired
 	JdbcDao jdbcDao;
 
 	@Autowired
-	public ChannelDAOImpl(DataSource dataSource) {
+	public ChannelDaoImpl(DataSource dataSource) {
 		this.setDataSource(dataSource);
 	}
 
@@ -177,7 +177,7 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 	}
 
 	@Override
-	public List<Channel> listUseChannelByParent(Integer pid) {
+	public List<Channel> listUseChannelByParent(Integer pid) {// oo
 		Gson gson = new Gson();
 		String sql = "select * from channel a left join channel b on(a.parent_id=b.channel_id) where b.channel_id="
 				+ pid + " and b.channel_status=0 order by a.orders ";
@@ -199,7 +199,7 @@ public class ChannelDAOImpl extends JdbcDaoSupport implements ChannelDao {
 	}
 
 	@Override
-	public List<Channel> listChannelByType(String channelType) {
+	public List<Channel> listChannelByType(String channelType) {// oo
 		Gson gson = new Gson();
 		String sql = "select * from channel  where channel_status=0 and channel_type=?";
 		List<Map<String, Object>> maps = jdbcDao.queryRowMapListForSql(sql, new Object[] { channelType });

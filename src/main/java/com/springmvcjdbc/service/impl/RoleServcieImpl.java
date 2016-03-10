@@ -5,8 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springmvcjdbc.dao.RoleDAO;
-import com.springmvcjdbc.dao.UserDAO;
+import com.springmvcjdbc.dao.RoleDao;
+import com.springmvcjdbc.dao.UserDao;
 import com.springmvcjdbc.model.CmsException;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.User;
@@ -16,9 +16,9 @@ import com.springmvcjdbc.service.RoleService;
 public class RoleServcieImpl implements RoleService {
 
 	@Autowired
-	private UserDAO userDao;
+	private UserDao userDao;
 	@Autowired
-	private RoleDAO roleDao;
+	private RoleDao roleDao;
 
 	@Override
 	public void add(Role role) {

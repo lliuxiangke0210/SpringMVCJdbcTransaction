@@ -9,16 +9,16 @@ import org.springframework.jdbc.core.support.JdbcDaoSupport;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
-import com.springmvcjdbc.dao.DepartmentDAO;
+import com.springmvcjdbc.dao.DepartmentDao;
 import com.springmvcjdbc.mapper.DepartmentMapper;
 import com.springmvcjdbc.model.Department;
 
 @Service
 @Transactional
-public class DepartmentDAOImpl extends JdbcDaoSupport implements DepartmentDAO {
+public class DepartmentDaoImpl extends JdbcDaoSupport implements DepartmentDao {
 
 	@Autowired
-	public DepartmentDAOImpl(DataSource dataSource) {
+	public DepartmentDaoImpl(DataSource dataSource) {
 		this.setDataSource(dataSource);
 	}
 

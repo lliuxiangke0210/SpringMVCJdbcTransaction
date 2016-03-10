@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.springmvcjdbc.model.Role;
 
-public interface RoleDAO {
+public interface RoleDao {
 
 	public Role findRole(Integer roleId);
 

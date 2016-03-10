@@ -12,15 +12,15 @@ import org.springframework.transaction.annotation.Transactional;
 import com.dexcoder.commons.pager.Pager;
 import com.dexcoder.dal.JdbcDao;
 import com.dexcoder.dal.spring.page.PageControl;
-import com.springmvcjdbc.dao.UserRoleDAO;
-import com.springmvcjdbc.model.UserRole;
+import com.springmvcjdbc.dao.UserGroupDao;
+import com.springmvcjdbc.model.UserGroup;
 
 @Service
 @Transactional
-public class UserRoleDAOImpl extends JdbcDaoSupport implements UserRoleDAO {
+public class UserGroupDaoImpl extends JdbcDaoSupport implements UserGroupDao {
 
 	@Autowired
-	public UserRoleDAOImpl(DataSource dataSource) {
+	public UserGroupDaoImpl(DataSource dataSource) {
 		this.setDataSource(dataSource);
 	}
 
@@ -28,38 +28,38 @@ public class UserRoleDAOImpl extends JdbcDaoSupport implements UserRoleDAO {
 	JdbcDao jdbcDao;
 
 	@Override
-	public UserRole findUserRole(Integer userRoleId) {
+	public UserGroup findUserGroup(Integer userGroupId) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
 	@Override
-	public void insertUserRole(UserRole userRole) {
-		Long UserRoleId = jdbcDao.insert(userRole);
-		System.out.println(UserRoleId);
+	public void insertUserGroup(UserGroup userGroup) {
+		Long UserGroupId = jdbcDao.insert(userGroup);
+		System.out.println(UserGroupId);
 
 	}
 
 	@Override
-	public List<UserRole> listUserRole() {
-		UserRole userRole = new UserRole();
-		PageControl.performPage(userRole);
-		jdbcDao.queryList(userRole);
+	public List<UserGroup> listUserGroup() {
+		UserGroup userGroup = new UserGroup();
+		PageControl.performPage(userGroup);
+		jdbcDao.queryList(userGroup);
 		Pager pager = PageControl.getPager();
-		List<UserRole> userRoles = pager.getList(UserRole.class);
-		System.out.println(userRoles);
+		List<UserGroup> userGroups = pager.getList(UserGroup.class);
+		System.out.println(userGroups);
 		System.out.println("总记录数：" + pager.getItemsTotal());
 		return null;
 	}
 
 	@Override
-	public void delete(Integer userRoleId) {
+	public void delete(Integer userGroupId) {
 		// TODO Auto-generated method stub
 
 	}
 
 	@Override
-	public void Update(UserRole userRole) {
+	public void Update(UserGroup userGroup) {
 		// TODO Auto-generated method stub
 
 	}

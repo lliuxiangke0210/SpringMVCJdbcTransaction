@@ -9,7 +9,7 @@ import com.springmvcjdbc.model.User;
 import com.springmvcjdbc.model.UserGroup;
 import com.springmvcjdbc.model.UserRole;
 
-public interface UserDAO {
+public interface UserDao {
 
 	/**
 	 * 获取用户的所有角色信息

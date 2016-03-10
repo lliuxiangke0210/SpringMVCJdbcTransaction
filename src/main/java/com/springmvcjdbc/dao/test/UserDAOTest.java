@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.springmvcjdbc.dao.UserDAO;
+import com.springmvcjdbc.dao.UserDao;
 import com.springmvcjdbc.model.Groupz;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.User;
@@ -16,13 +16,13 @@ import com.springmvcjdbc.model.UserRole;
 public class UserDAOTest {
 
 	@Autowired
-	private UserDAO userDAO;
+	private UserDao userDAO;
 
-	public UserDAO getUserDAO() {
+	public UserDao getUserDAO() {
 		return userDAO;
 	}
 
-	public void setUserDAO(UserDAO userDAO) {
+	public void setUserDAO(UserDao userDAO) {
 		this.userDAO = userDAO;
 	}
 

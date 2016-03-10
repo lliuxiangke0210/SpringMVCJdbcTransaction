@@ -10,14 +10,14 @@ import org.springframework.web.servlet.ModelAndView;
 
 import com.dexcoder.dal.JdbcDao;
 import com.springmvcjdbc.cms.web.CmsSessionContext;
-import com.springmvcjdbc.dao.UserDAO;
+import com.springmvcjdbc.dao.UserDao;
 
 @Controller
 @RequestMapping("/admin")
 public class AdminController {
 
 	@Autowired
-	private UserDAO userDAO;
+	private UserDao userDAO;
 	@Autowired
 	private JdbcDao jdbcDao;
 

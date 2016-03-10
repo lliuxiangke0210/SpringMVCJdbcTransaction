@@ -10,9 +10,9 @@ import org.springframework.stereotype.Service;
 
 import com.dexcoder.commons.pager.Pager;
 import com.springmvcjdbc.commons.utils.SecurityUtil;
-import com.springmvcjdbc.dao.GroupzDAO;
-import com.springmvcjdbc.dao.RoleDAO;
-import com.springmvcjdbc.dao.UserDAO;
+import com.springmvcjdbc.dao.GroupzDao;
+import com.springmvcjdbc.dao.RoleDao;
+import com.springmvcjdbc.dao.UserDao;
 import com.springmvcjdbc.model.CmsException;
 import com.springmvcjdbc.model.Groupz;
 import com.springmvcjdbc.model.Role;
@@ -23,11 +23,11 @@ import com.springmvcjdbc.service.UserServcie;
 public class UserServcieImpl implements UserServcie {
 
 	@Autowired
-	private UserDAO userDao;
+	private UserDao userDao;
 	@Autowired
-	private RoleDAO roleDao;
+	private RoleDao roleDao;
 	@Autowired
-	private GroupzDAO groupDao;
+	private GroupzDao groupDao;
 
 	private void addUserRole(User user, Integer rid) {
 		// 1、检查角色对象是否存在，如果不存在，就抛出异常

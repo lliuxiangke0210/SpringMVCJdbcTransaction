@@ -12,8 +12,8 @@ import org.springframework.web.servlet.ModelAndView;
 import com.dexcoder.dal.JdbcDao;
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import com.springmvcjdbc.dao.RoleDAO;
-import com.springmvcjdbc.dao.UserDAO;
+import com.springmvcjdbc.dao.RoleDao;
+import com.springmvcjdbc.dao.UserDao;
 import com.springmvcjdbc.model.Role;
 import com.springmvcjdbc.model.UserRole;
 
@@ -22,9 +22,9 @@ import com.springmvcjdbc.model.UserRole;
 public class UserRoleController {
 
 	@Autowired
-	private UserDAO userDAO;
+	private UserDao userDAO;
 	@Autowired
-	private RoleDAO roleDAO;
+	private RoleDao roleDAO;
 	@Autowired
 	private JdbcDao jdbcDao;
 
