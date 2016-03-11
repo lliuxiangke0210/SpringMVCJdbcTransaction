@@ -27,16 +27,13 @@
 			<url>https://code.lds.org/nexus/content/groups/main-repo</url>
 		</repository>
 	</repositories>
-
 	<dependencies>
-
 		<dependency>
 			<groupId>junit</groupId>
 			<artifactId>junit</artifactId>
 			<version>3.8.1</version>
 			<scope>test</scope>
 		</dependency>
-
 		<!-- Servlet API -->
 		<!-- http://mvnrepository.com/artifact/javax.servlet/javax.servlet-api -->
 		<dependency>
@@ -45,7 +42,6 @@
 			<version>3.1.0</version>
 			<scope>provided</scope>
 		</dependency>
-
 		<!-- Jstl for jsp page -->
 		<!-- http://mvnrepository.com/artifact/javax.servlet/jstl -->
 		<dependency>
@@ -53,7 +49,6 @@
 			<artifactId>jstl</artifactId>
 			<version>1.2</version>
 		</dependency>
-
 
 		<!-- JSP API -->
 		<!-- http://mvnrepository.com/artifact/javax.servlet.jsp/jsp-api -->
@@ -290,10 +285,18 @@
 			<artifactId>commons-logging</artifactId>
 			<version>1.2</version>
 		</dependency>
-
-
-
-
+		<!-- kryo序列化框架 -->
+		<dependency>
+			<groupId>com.esotericsoftware.kryo</groupId>
+			<artifactId>kryo</artifactId>
+			<version>2.24.0</version>
+		</dependency>
+		<dependency>
+			<groupId>net.agkn</groupId>
+			<artifactId>hll</artifactId>
+			<version>1.6.0</version>
+			<scope>provided</scope>
+		</dependency>
 	</dependencies>
 
 	<build>
